@@ -42,3 +42,25 @@ test('test', async ({ page }) => {
 
 });
 
+test('Potencial', async ({ page }) => {
+  await page.goto('https://crm-frontend-vitalea-pruebas.azurewebsites.net/login');
+  await page.getByPlaceholder('Usuario').click();
+  await page.getByPlaceholder('Usuario').click();
+  await page.getByPlaceholder('Usuario').fill('etorres');
+  await page.getByRole('textbox', { name: 'Contraseña' }).click();
+  await page.getByRole('textbox', { name: 'Contraseña' }).fill('EAyamaTK1989*1');
+  await page.getByRole('textbox', { name: 'Contraseña' }).press('Tab');
+  await page.locator('#SelSede').press('ArrowDown');
+  await page.locator('#SelSede').press('ArrowDown');
+  await page.locator('#SelSede').press('ArrowDown');
+  await page.getByRole('button', { name: 'Ingrese' }).click();
+  await page.locator('#active13').click();
+  await page.getByRole('link', { name: 'Crear Venta Potencial' }).click();
+  await page.locator('#vPEstandar img').click();
+  await page.locator('#SelTipDocVentas').selectOption('1');
+  await page.getByPlaceholder('Número De Documento').click();
+  await page.getByPlaceholder('Número De Documento').fill('2020187368');
+  await page.locator('#btnshare').click();
+  await page.getByRole('textbox', { name: 'Buscar Planes' }).click();
+  await page.getByText('-COLCAN VITALEA').click();
+});
